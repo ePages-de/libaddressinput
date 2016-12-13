@@ -14,12 +14,38 @@
  * limitations under the License.
  */
 
+plugins {
+    id "com.jfrog.artifactory" version "4.4.9"
+}
+apply plugin: 'publishing'
+
+
 /*
  * Root Gradle file for Java address input widget (under "common" and "android")
  */
 allprojects {
+  apply plugin: 'com.jfrog.artifactory'
   repositories {
     mavenCentral()
     mavenLocal()
   }
 }
+
+
+artifactory {
+    contextUrl = System.env.ARTIFACTORY_URL
+    publish {
+        repository {
+            repoKey = System.env.ARTIFACTORY_RELEASE_REPOSITORY
+            username = System.env.ARTIFACTORY_DEPLOYER_USERNAME
+            password = System.env.ARTIFACTORY_DEPLOYER_PASSWORD
+            maven = true
+        }
+        defaults {
+            //publishIvy & publishPom are true by default
+            publishArtifacts = true
+            publications('mavenJava')
+        }
+    }
+}
+
