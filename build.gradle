@@ -49,3 +49,4 @@ artifactory {
     }
 }
 
+publish.dependsOn(artifactoryPublish)
