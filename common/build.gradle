@@ -32,7 +32,7 @@ targetCompatibility = '1.7'
 
 
 dependencies {
-  compile 'com.google.guava:guava-gwt:18.0'
+  compile 'com.google.guava:guava:18.0'
   /* Note that gradle will warn about this not being the same version as *
    * the Android JSON library (but will not compile if it's removed).    */
   compile 'org.json:json:20160810'
