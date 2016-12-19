@@ -69,7 +69,7 @@ test {
 
 project.with {
     group = 'com.epages.libaddressinput'
-    version = '0.2'
+    version = '0.3'
 }
 
 // packaging.
